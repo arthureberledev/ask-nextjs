@@ -1,0 +1,49 @@
+{
+  "name": "ask-nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "gen-types": "prisma generate",
+    "refresh-files": "tsx lib/index-files.ts --refresh",
+    "index-files": "tsx lib/index-files.ts",
+    "seed": "tsx lib/seed.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.2.0",
+    "@types/node": "18.15.10",
+    "@types/react": "18.0.30",
+    "@types/react-dom": "18.0.11",
+    "@vercel/postgres": "^0.4.1",
+    "encoding": "^0.1.13",
+    "eslint": "8.36.0",
+    "eslint-config-next": "13.2.4",
+    "github-slugger": "^2.0.0",
+    "mdast": "^3.0.0",
+    "mdast-util-from-markdown": "^1.2.0",
+    "mdast-util-mdx": "^2.0.0",
+    "mdast-util-to-markdown": "^1.5.0",
+    "mdast-util-to-string": "^3.1.1",
+    "micromark-extension-mdxjs": "^1.0.0",
+    "next": "13.4.19",
+    "openai": "^4.3.1",
+    "prisma": "^5.2.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "^4.9.5",
+    "unist-builder": "^3.0.1",
+    "unist-util-filter": "^4.0.1",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@types/estree": "^1.0.0",
+    "@types/mdast": "^3.0.11",
+    "@types/yargs": "^17.0.24",
+    "dotenv": "^16.0.3",
+    "prettier": "^2.8.7",
+    "tsx": "^3.12.6"
+  }
+}

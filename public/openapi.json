@@ -1,0 +1,85 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Ask Next.js API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/docs": {
+      "get": {
+        "summary": "Get information about the latest documentation of Next.js",
+        "operationId": "checkNextJsUsingGET",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "The user's query for which a similarity search with the nextjs documenation pages should be performed.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid query parameter provided."
+          },
+          "500": {
+            "description": "Internal Server Error - Issues with retrieving data or processing."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "QuerySearch": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "The user's query for which a similarity search in the documenation pages should be performed."
+          }
+        },
+        "required": ["query"]
+      },
+      "SimilarContent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The unique identifier for the similar content."
+          },
+          "content": {
+            "type": "string",
+            "description": "The original content text that matches the user's query."
+          }
+        },
+        "required": ["id", "content"]
+      },
+      "SearchResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SimilarContent"
+            },
+            "description": "A list of contents similar to what the user has requested informations about."
+          }
+        },
+        "required": ["data"]
+      }
+    }
+  }
+}
